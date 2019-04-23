@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MBEventApp</string>
+    <string name="msg_inputtextlayout_email">email</string>
+    <string name="msg_button_signin">Entrar</string>
+    <string name="msg_textinputlayout_password">Senha</string>
+    <string name="msg_textview_logo_app_image">Logo app image</string>
+    <string name="msg_imageview_event_image">event poster image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_textview_category_topic">Categoria:</string>
+    <string name="msg_textview_event_timetable_topic">Data e Hora:</string>
+    <string name="msg_textview_event_price">Preço:</string>
+</resources>

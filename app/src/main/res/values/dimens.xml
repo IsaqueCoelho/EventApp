@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Dimens -->
+    <dimen name="title_text">16sp</dimen>
+    <dimen name="body_text">12sp</dimen>
+
+    <!-- Magin Dimens -->
+    <dimen name="heavyMargin3">64dp</dimen>
+    <dimen name="heavyMargin2">32dp</dimen>
+    <dimen name="mediumMargin">8dp</dimen>
+
+    <!-- Elevation Dimens -->
+    <dimen name="mediumElevation">4dp</dimen>
+
+    <!-- Padding Dimens -->
+    <dimen name="heavyPadding">16dp</dimen>
+    <dimen name="mediumPadding">8dp</dimen>
+    <dimen name="softMargin">4dp</dimen>
+
+    <!-- Login Dimens -->
+    <dimen name="imageviewLogoMargin">255dp</dimen>
+
+</resources>

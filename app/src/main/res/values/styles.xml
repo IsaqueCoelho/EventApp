@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/body_text</item>
+    </style>
+
+    <style name="CardView.MovieCatalogTopic">
+        <item name="android:paddingStart">@dimen/heavyPadding</item>
+        <item name="android:paddingEnd">@dimen/mediumPadding</item>
+        <item name="android:paddingBottom">@dimen/mediumPadding</item>
+    </style>
+
+    <style name="CardView.MovieCatalogTopic.Title">
+        <item name="android:paddingTop">@dimen/mediumPadding</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
