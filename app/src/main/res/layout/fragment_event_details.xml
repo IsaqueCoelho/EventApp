@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".BlankFragment">
+
+
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleTextAppearance="@android:color/transparent">
+
+            <ImageView
+                    android:id="@+id/imageview_event_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/event_app_image"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/msg_imageview_event_image"
+                    app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:layout_collapseMode="pin"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/mediumPadding"
+                android:paddingTop="@dimen/heavyPadding"
+                android:paddingEnd="@dimen/mediumPadding">
+
+            <TextView
+                    android:id="@+id/textview_event_title"
+                    style="@style/CardView.MovieCatalogTopic.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/title_text"
+                    tools:text="PALESTRA MARIO SERGIO CORTELLA NO RIO DE JANEIRO"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <GridLayout
+                    android:id="@+id/gridlayout_general_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="4"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_event_title">
+
+                <TextView
+                        android:id="@+id/textview_event_category_topic"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="@string/msg_textview_category_topic"/>
+
+                <TextView
+                        android:id="@+id/textview_event_category_response"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Teatro; Festa; Clássico;"/>
+
+                <TextView
+                        android:id="@+id/textview_event_schedule_topic"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="@string/msg_textview_event_schedule_topic"/>
+
+                <TextView
+                        android:id="@+id/textview_event_schedule_response"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="22 de Abril, 2019 às 20h00"/>
+
+                <TextView
+                        android:id="@+id/textview_event_price_topic"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="@string/msg_textview_event_price"/>
+
+                <TextView
+                        android:id="@+id/textview_event_price_response"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="R$ 200,00"/>
+
+
+                <TextView
+                        android:id="@+id/textview_event_address_topic"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="@string/msg_textview_event_address_topic"/>
+
+                <TextView
+                        android:id="@+id/textview_event_address_response"
+                        style="@style/CardView.MovieCatalogTopic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Ribalta Espaço Multieventos - Av. das Américas, 9650 - Barra da Tijuca, Rio de Janeiro"/>
+
+            </GridLayout>
+
+            <TextView
+                    android:id="@+id/textview_event_overview_response"
+                    style="@style/CardView.MovieCatalogTopic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Superar, Inovar &amp; Transformar. A Sorte Segue a Coragem
+
+Primeira Parte: Sobre a palestra, o professor provocará a reflexão dos participantes com abordagens profundas como: &#34;Os tempos são, de fato, turbulentos e as mudanças velozes;&#34; nessa circunstância, não se prepara alguém para ir a algum lugar, mas para que ele tenha condições de ir. Não se tem clareza em saber que rumo vai tomar o processo produtivo - você não vê todas as tendências, mas pode deixar a pessoa em estado de prontidão para que ela não se sinta indefesa ou surpreendida por uma mudança de rota.
+
+            Segunda Parte: Todo mundo já usou algumas dessas justificativas para o insucesso: - Eu tento, tento e não funciona; - não tenho sorte; - não dou pro negócio; - por mais que eu ande, não saio do lugar; - não fico fazendo marketing pessoal. Em A sorte segue a coragem! Oportunidades, competências e tempos de vida, o professor Mario Sergio Cortella afirma que não se pode atribuir o sucesso ou o fracasso a forças externas. O Prof. Mario Sergio Cortella, autor de 38 LIVROS entre eles: Qual é a tua obra? Viver em paz para morrer em Paz, Porque Fazemos o que Fazemos? Um dos maiores best-sellers brasileiros dos Últimos anos, discute as formas de comportamentos comuns a todos e aponta caminhos para que cada um cultive a própria sorte."
+                    android:layout_marginTop="@dimen/heavyMargin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gridlayout_general_information"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_buy_ticket"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/heavyMargin"
+            android:src="@drawable/ic_round_shopping_cart_white_48"
+            app:fabSize="normal"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:layout_anchor="@id/appbarlayout"
+            app:layout_anchorGravity="bottom|end"/>
+
+</android.support.design.widget.CoordinatorLayout>

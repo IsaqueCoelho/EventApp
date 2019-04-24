@@ -9,6 +9,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_textview_category_topic">Categoria:</string>
-    <string name="msg_textview_event_timetable_topic">Data e Hora:</string>
+    <string name="msg_textview_event_schedule_topic">Data e Hora:</string>
     <string name="msg_textview_event_price">Preço:</string>
+    <string name="msg_textview_event_address_topic">Endereço:</string>
 </resources>
