@@ -12,4 +12,7 @@
     <string name="msg_textview_event_schedule_topic">Data e Hora:</string>
     <string name="msg_textview_event_price">Preço:</string>
     <string name="msg_textview_event_address_topic">Endereço:</string>
+    <string name="error_textinputedittext_email_invalid">Preencha com um email válido</string>
+    <string name="error_textinputedittext_password_invalid">Informe uma senha válida</string>
+    <string name="error_toast_invalid_login">Login invalido</string>
 </resources>

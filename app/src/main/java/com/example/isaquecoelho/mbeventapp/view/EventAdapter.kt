@@ -1,9 +1,11 @@
-package com.example.isaquecoelho.mbeventapp
+package com.example.isaquecoelho.mbeventapp.view
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.isaquecoelho.mbeventapp.R
+import com.example.isaquecoelho.mbeventapp.model.Event
 import kotlinx.android.synthetic.main.item_event.view.*
 
 class EventAdapter(val eventList: List<Event>) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
