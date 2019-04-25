@@ -1,9 +1,10 @@
 package com.example.isaquecoelho.mbeventapp.model
 
-class Event constructor(val title: String?,
-                        val image: String?,
-                        val type: List<String>?,
-                        val schedule: String?,
-                        val address: String?,
-                        val description: String?
+data class Event constructor(var title: String? = null,
+                        var image: String? = null,
+                        var type: List<String>? = null,
+                        var schedule: String? = null,
+                        var price: String? = null,
+                        var address: String? = null,
+                        var description: String? = null
 )

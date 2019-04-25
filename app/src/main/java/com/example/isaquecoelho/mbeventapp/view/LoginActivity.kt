@@ -1,5 +1,7 @@
 package com.example.isaquecoelho.mbeventapp.view
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -32,11 +34,17 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    companion object {
+        fun newInstance(context: Context?): Intent{
+            return Intent(context, LoginActivity::class.java)
+        }
+    }
+
     private fun listenerViews() {
         button_login.setOnClickListener {
             loadingData(true)
             if(!isFomrValid()){
-                Toast.makeText(this, "Dados inválidos, tente novamente", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.error_toast_invalid_form), Toast.LENGTH_LONG).show()
                 loadingData(false)
             } else {
                 getAuthorization()
@@ -76,8 +84,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToCatalog(){
-        val intent = MainActivity.newIntent(this)
-        startActivity(intent)
+        val mainIntent = MainActivity.newIntent(this)
+        mainIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK  or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(mainIntent)
     }
 
     private fun loadingData(status: Boolean){
