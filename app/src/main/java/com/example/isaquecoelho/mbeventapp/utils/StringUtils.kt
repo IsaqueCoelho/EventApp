@@ -3,7 +3,6 @@ package com.example.isaquecoelho.mbeventapp.utils
 import java.security.MessageDigest
 
 class StringUtils {
-
     fun passwordHash(text: String): String{
         val textBytes = text.toByteArray()
         val textmessageDigest = MessageDigest.getInstance("SHA-256")

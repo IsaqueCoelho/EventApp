@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".view.BlankFragment">
+        tools:context=".view.EventDetailsFragment">
 
 
     <android.support.design.widget.AppBarLayout
@@ -71,6 +71,7 @@
                     android:id="@+id/gridlayout_general_information"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:columnCount="2"
                     android:rowCount="4"
                     app:layout_constraintTop_toBottomOf="@+id/textview_event_title">
@@ -81,14 +82,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="@string/msg_textview_category_topic"/>
+                        android:text="@string/msg_textview_category_topic"
+                        android:layout_row="0"
+                        android:layout_column="0"/>
 
                 <TextView
                         android:id="@+id/textview_event_category_response"
                         style="@style/CardView.MovieCatalogTopic"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:text="Teatro; Festa; Clássico;"/>
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill_horizontal"
+                        tools:text="Teatro; Festa; Clássico;"
+                        android:layout_row="0"
+                        android:layout_column="1"/>
 
                 <TextView
                         android:id="@+id/textview_event_schedule_topic"
@@ -96,14 +101,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="@string/msg_textview_event_schedule_topic"/>
+                        android:text="@string/msg_textview_event_schedule_topic"
+                        android:layout_row="1"
+                        android:layout_column="0"/>
 
                 <TextView
                         android:id="@+id/textview_event_schedule_response"
                         style="@style/CardView.MovieCatalogTopic"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:text="22 de Abril, 2019 às 20h00"/>
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill_horizontal"
+                        tools:text="22 de Abril, 2019 às 20h00"
+                        android:layout_row="1"
+                        android:layout_column="1"/>
 
                 <TextView
                         android:id="@+id/textview_event_price_topic"
@@ -111,14 +120,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="@string/msg_textview_event_price"/>
+                        android:text="@string/msg_textview_event_price"
+                        android:layout_row="2"
+                        android:layout_column="0"/>
 
                 <TextView
                         android:id="@+id/textview_event_price_response"
                         style="@style/CardView.MovieCatalogTopic"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:text="R$ 200,00"/>
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill_horizontal"
+                        tools:text="R$ 200,00"
+                        android:layout_row="2"
+                        android:layout_column="1"/>
 
 
                 <TextView
@@ -127,14 +140,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="@string/msg_textview_event_address_topic"/>
+                        android:text="@string/msg_textview_event_address_topic"
+                        android:layout_row="3"
+                        android:layout_column="0"/>
 
                 <TextView
                         android:id="@+id/textview_event_address_response"
                         style="@style/CardView.MovieCatalogTopic"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:text="Ribalta Espaço Multieventos - Av. das Américas, 9650 - Barra da Tijuca, Rio de Janeiro"/>
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill_horizontal"
+                        tools:text="Ribalta Espaço Multieventos - Av. das Américas, 9650 - Barra da Tijuca, Rio de Janeiro"
+                        android:layout_row="3"
+                        android:layout_column="1"/>
 
             </GridLayout>
 

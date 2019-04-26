@@ -4,10 +4,17 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.isaquecoelho.mbeventapp.R
+import com.example.isaquecoelho.mbeventapp.data.FirebaseConnection
+import com.example.isaquecoelho.mbeventapp.model.Event
+import com.firebase.ui.storage.images.FirebaseImageLoader
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_event_details.*
 
 
@@ -41,7 +48,7 @@ class EventDetailsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val eventDetailView = inflater.inflate(R.layout.fragment_event_details, container, false)
-
+        getDataEvent()
         return eventDetailView
     }
 
@@ -50,22 +57,56 @@ class EventDetailsFragment : Fragment() {
         settingToolbarMovie()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        super.onOptionsItemSelected(item)
-        if( item!!.itemId == android.R.id.home ){
-
-            Log.e(LOG_TAG, "close fragment")
-            (context as MainActivity).onBackPressed()
-        }
-        return true
-    }
-
     private fun settingToolbarMovie() {
         (context as MainActivity).setSupportActionBar(toolbar_event)
         (context as MainActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         (context as MainActivity).supportActionBar!!.setDisplayShowHomeEnabled(true)
+        (context as MainActivity).supportActionBar!!.title = ""
     }
 
+    private fun getDataEvent(){
+        val eventNode = "event"
+
+        val databaseReference = FirebaseConnection.getDatabase(eventNode)
+        databaseReference.addListenerForSingleValueEvent( settingValueListener() )
+    }
+
+    private fun settingValueListener(): ValueEventListener {
+
+        return object : ValueEventListener{
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(context, getString(R.string.error_firebase_getdata), Toast.LENGTH_LONG).show()
+                Log.e(LOG_TAG, "dabaseError: ${databaseError.message}, details: ${databaseError.details}")
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()){
+
+                    dataSnapshot.children.forEach{
+                        if( it.key.equals(mEventId) ){
+                            settingViews( it.getValue(Event::class.java) )
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun settingViews(event: Event?) {
+
+        Glide.with(this.context!!)
+            .using(FirebaseImageLoader())
+            .load(FirebaseConnection.getStorage(event!!.image.toString()))
+            .into(imageview_event_banner)
+
+        textview_event_title.text = event.title
+        textview_event_category_response.text = event.category!!.joinToString()
+        textview_event_schedule_response.text = event.schedule
+        textview_event_price_response.text = event.price
+        textview_event_address_response.text = event.address
+        textview_event_overview_response.text = event.overview
+
+    }
 
     companion object {
         /**

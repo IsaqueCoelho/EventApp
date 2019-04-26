@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.view.MenuItem
 import com.example.isaquecoelho.mbeventapp.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -30,8 +32,14 @@ class MainActivity : AppCompatActivity() {
         MainActivity.validateConnection(this)
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                supportFragmentManager.popBackStack()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {

@@ -3,7 +3,7 @@
 
     <!-- Text Dimens -->
     <dimen name="title_text">16sp</dimen>
-    <dimen name="body_text">12sp</dimen>
+    <dimen name="body_text">14sp</dimen>
 
     <!-- Magin Dimens -->
     <dimen name="heavyMargin3">64dp</dimen>
