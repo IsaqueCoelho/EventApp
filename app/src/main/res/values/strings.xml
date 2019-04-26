@@ -17,4 +17,5 @@
     <string name="error_textinputedittext_password_invalid">Informe uma senha válida</string>
     <string name="error_toast_invalid_login">Login invalido</string>
     <string name="error_toast_invalid_form">Dados inválidos, preencha corretamente</string>
+    <string name="error_firebase_getdata">Ops, não foi possível buscar os dados!</string>
 </resources>

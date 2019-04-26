@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToCatalog(){
         val mainIntent = MainActivity.newIntent(this)
-        mainIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK  or Intent.FLAG_ACTIVITY_NEW_TASK
+        mainIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(mainIntent)
     }
 

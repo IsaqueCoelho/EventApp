@@ -31,23 +31,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageview_event_poster"/>
 
         <TextView
-                android:id="@+id/textview_event_schedule_topic"
-                style="@style/CardView.MovieCatalogTopic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/msg_textview_event_schedule_topic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textview_event_title"/>
-
-        <TextView
                 android:id="@+id/textview_event_schedule_response"
                 style="@style/CardView.MovieCatalogTopic"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="20 de Maio"
-                app:layout_constraintHorizontal_weight="1"
-                app:layout_constraintStart_toEndOf="@+id/textview_event_schedule_topic"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textview_event_title"
                 app:layout_constraintEnd_toEndOf="parent"/>
 

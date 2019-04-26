@@ -1,6 +1,7 @@
 package com.example.isaquecoelho.mbeventapp.model
 
-data class Event constructor(var title: String? = null,
+data class Event constructor(var id: String? = null,
+                        var title: String? = null,
                         var image: String? = null,
                         var type: List<String>? = null,
                         var schedule: String? = null,

@@ -3,10 +3,8 @@ package com.example.isaquecoelho.mbeventapp.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.ContextCompat.startActivity
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.example.isaquecoelho.mbeventapp.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -21,12 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.container,
-                    CatalogFragment.newInstance()
-                )
-                .commitNow()
+            settingFragment(CatalogFragment.newInstance())
         }
 
         userAuth = FirebaseAuth.getInstance()
@@ -35,6 +28,10 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         MainActivity.validateConnection(this)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 
     companion object {
@@ -53,6 +50,18 @@ class MainActivity : AppCompatActivity() {
             loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK  or Intent.FLAG_ACTIVITY_NEW_TASK
             context?.startActivity(loginIntent)
         }
+    }
+
+    fun settingFragment(fragment: Fragment) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+
+        fragmentTransaction.setCustomAnimations(android.R.animator.fade_in,
+            android.R.animator.fade_out,
+            android.R.animator.fade_in,
+            android.R.animator.fade_out)
+        fragmentTransaction.replace(R.id.framelayout_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
 }

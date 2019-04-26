@@ -7,10 +7,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.isaquecoelho.mbeventapp.R
 import com.example.isaquecoelho.mbeventapp.data.FirebaseConnection
 import com.example.isaquecoelho.mbeventapp.model.Event
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -23,6 +23,7 @@ class CatalogFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View {
         val catalogView: View = inflater.inflate(R.layout.catalog_fragment, container, false)
 
+        //settingToolbarMovie()
         getDataList()
 
         return catalogView
@@ -37,16 +38,24 @@ class CatalogFragment : Fragment() {
         fun newInstance() = CatalogFragment()
     }
 
-    private fun getDataList() {
-        val EVENT_NODE = "catalog"
+    private fun settingToolbarMovie() {
+        (context as MainActivity).setSupportActionBar(null)
+        (context as MainActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        (context as MainActivity).supportActionBar!!.setDisplayShowHomeEnabled(false)
+        (context as MainActivity).supportActionBar!!.title = null
+    }
 
-        val databaseReference = FirebaseConnection.getDatabase(EVENT_NODE)
+    private fun getDataList() {
+        val eventNode = "catalog"
+
+        val databaseReference = FirebaseConnection.getDatabase(eventNode)
         databaseReference.addListenerForSingleValueEvent( settingListerData() )
     }
 
     private fun settingListerData(): ValueEventListener {
         return object: ValueEventListener {
             override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(context, getString(R.string.error_firebase_getdata), Toast.LENGTH_LONG).show()
                 Log.e(LOG_TAG, "dabaseError: ${databaseError.message}, details: ${databaseError.details}")
             }
 
@@ -60,7 +69,6 @@ class CatalogFragment : Fragment() {
                     }
 
                     populateRecyclerView(eventList)
-
                 }
             }
         }
@@ -71,8 +79,11 @@ class CatalogFragment : Fragment() {
         recyclerview_eventList.layoutManager =
                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        recyclerview_eventList.adapter = EventAdapter(eventList)
-
+        recyclerview_eventList.adapter = EventAdapter(eventList, object: EventAdapter.OnItemClickListener{
+            override fun onItemClick(eventId: String) {
+                (context as MainActivity).settingFragment(EventDetailsFragment.newInstance(eventId))
+            }
+        } )
     }
 
 }
